@@ -5,7 +5,7 @@
 # Purpose: Movie Looper for the Rasberry Pi
 # Released under the BSD license
 
-# Create playlist file used for starting moive play and run script
+# Create playlist file used for starting movie play and run script
 
 #echo "featured" > /tmp/play-mp4.txt
 #bash -x /media/FLASHDEVICE/play-mp4.sh
