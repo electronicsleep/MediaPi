@@ -68,7 +68,7 @@ crontab -e
 
 ```
 #MEDIAPI AUTOPLAY
-#* * * * *  bash -x /media/FLASHDEVICE/autoplay-mp4.sh > /media/FLASHDEVICE/autoplay-mp4.out 
+#*/15 * * * *  bash -x /media/FLASHDEVICE/autoplay-mp4.sh > /media/FLASHDEVICE/autoplay-mp4.out 
 ```
 
 #Resources:
