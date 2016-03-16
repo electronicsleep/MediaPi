@@ -33,15 +33,13 @@ Movie Playlists
 
 #Flashcard Contents:
 
+```
 -> autplay-mp4.sh
-
 -> play-mp4.sh
-
 -> video -> featured -> your movies
-
             raw-footage -> your movies
-
             relax -> your movies
+```
 
 #Examples:
 
