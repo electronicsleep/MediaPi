@@ -32,13 +32,13 @@ FILES=/media/FLASHDEVICE/video/*
 ### PLAYLISTS USING INFO FROM TMP FILE
 
 if [ $PLAYLIST == 'raw-footage' ]; then
-FILES=$USB_NAME/video/raw-footage/*.MP4
+FILES=$USB_NAME/video/raw-footage/*.mp4
 elif [ $PLAYLIST == 'relax' ]; then
-FILES=$USB_NAME/video/relax/*.MP4
+FILES=$USB_NAME/video/relax/*.mp4
 elif [ $PLAYLIST == 'gopro-sdcard' ]; then
-FILES=$USB_GOPRO/*.MP4
+FILES=$USB_GOPRO/*.mp4
 else
-FILES=$USB_NAME/video/featured/*.MP4
+FILES=$USB_NAME/video/featured/*.mp4
 fi
 
 echo $PLAYLIST
