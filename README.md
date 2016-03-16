@@ -4,6 +4,7 @@ MEDIA PI
 Movie Looper for the Rasberry Pi
 
 Can play movies continuously on boot or respond to commands
+
 Turn your old TV into a rain machine or play your favorite videos
 
 #Requirements:
