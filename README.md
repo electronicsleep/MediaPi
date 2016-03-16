@@ -43,7 +43,7 @@ Movie Playlists
 
 #Examples:
 
-Show footage on Tv with friends while editing
+Show footage on TV with friends while editing
 
 Peaceful Rain
 
