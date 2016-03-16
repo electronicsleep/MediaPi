@@ -19,17 +19,17 @@ Old TV
 
 Projector - optional
 
-Files:
+#Files:
 
 autoplay-mp4.sh
 
 play-mp4
 
-Features:
+#Features:
 
 Movie Playlists
 
-Flashcard Contents:
+#Flashcard Contents:
 
 -> autplay-mp4.sh
 
@@ -41,7 +41,7 @@ Flashcard Contents:
 
             relax -> your movies
 
-Examples:
+#Examples:
 
 Show footage on Tv with friends while editing
 
@@ -55,7 +55,7 @@ GoPro Videos
 
 Portable
 
-Install:
+#Install:
 
 1. Ensure omxplayer is installed
 
@@ -71,7 +71,7 @@ crontab -e
 #* * * * *  bash -x /media/FLASHDEVICE/autoplay-mp4.sh > /media/FLASHDEVICE/autoplay-mp4.out 
 ```
 
-Resources:
+#Resources:
 
 https://www.raspberrypi.org/products/raspberry-pi-2-model-b/
 
