@@ -5,6 +5,8 @@ Movie Looper for the Rasberry Pi
 
 Can play movies continuously on boot or respond to commands
 
+Store movies and scrips on a old thumb drive and play at boot
+
 Turn your old TV into a rain machine or play your favorite videos
 
 #Requirements:
@@ -34,6 +36,7 @@ Movie Playlists
 #Flashcard Contents:
 
 ```
+DIR: /media/FLASHDEVICE
 -> autplay-mp4.sh
 -> play-mp4.sh
 -> video -> featured -> your movies
