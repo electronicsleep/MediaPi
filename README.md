@@ -25,7 +25,7 @@ Projector - optional
 
 autoplay-mp4.sh
 
-play-mp4
+play-mp4.sh
 
 #Features:
 
@@ -45,7 +45,7 @@ Movie Playlists
 
 Show footage on TV with friends while editing
 
-Peaceful Rain
+Peaceful Rain Example Idea
 
 https://www.youtube.com/watch?v=WlPUJHeWvpg
 
@@ -57,18 +57,18 @@ Portable
 
 #Install:
 
-1. Ensure omxplayer is installed
+1. Ensure omxplayer is installed.
 
-2. Put your movies and files on a USB flash device using structure above
+2. Put your movies and files on a USB flash device using structure above.
 
-3. Install cronjob to autoplay movies at reboot change location if needed
-
+3. Install cronjob to autoplay movies at reboot change location if needed, comment out.
 
 crontab -e
 
 ```
 #MEDIAPI AUTOPLAY
 #*/15 * * * *  bash -x /media/FLASHDEVICE/autoplay-mp4.sh > /media/FLASHDEVICE/autoplay-mp4.out 
+#@reboot  bash -x /media/FLASHDEVICE/autoplay-mp4.sh > /media/FLASHDEVICE/autoplay-mp4.out 
 ```
 
 #Resources:
