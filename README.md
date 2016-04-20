@@ -9,6 +9,8 @@ Store movies and scrips on a old thumb drive and play at boot
 
 Turn your old TV into a rain machine or play your favorite videos
 
+![Alt text](screenshot.jpg?raw=true "ScreenShot")
+
 #Requirements:
 
 RasberryPi2
@@ -22,6 +24,8 @@ HDMI cable
 Old TV
 
 Projector - optional
+
+Recycle (what is old is new again)
 
 #Files:
 
