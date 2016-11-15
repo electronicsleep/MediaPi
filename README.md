@@ -87,8 +87,7 @@ A) Remove the usb stick
 
 Q) How to stop the videos while playing
 
-A) ssh to the mediapi
-echo "stop" > /tmp/play-mp4.txt
+A) ssh to the mediapi: echo "stop" > /tmp/play-mp4.txt
 
 #Resources:
 
