@@ -43,7 +43,7 @@ Movie Playlists
 DIR: /media/FLASHDEVICE
 -> autplay-mp4.sh
 -> play-mp4.sh
--> video -> featured -> your movies
+-> video -> featured -> video.mp4
             raw-footage -> your movies
             relax -> your movies
 ```
@@ -77,6 +77,12 @@ crontab -e
 #*/15 * * * *  bash -x /media/FLASHDEVICE/autoplay-mp4.sh > /media/FLASHDEVICE/autoplay-mp4.out 
 #@reboot  bash -x /media/FLASHDEVICE/autoplay-mp4.sh > /media/FLASHDEVICE/autoplay-mp4.out 
 ```
+
+#FAQ
+
+Q) How do I boot up normally and not play videos
+
+A) Remove the usb stick
 
 #Resources:
 
