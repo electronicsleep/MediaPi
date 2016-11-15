@@ -73,9 +73,10 @@ Portable
 crontab -e
 
 ```
-#MEDIAPI AUTOPLAY
-#*/15 * * * *  bash -x /media/FLASHDEVICE/autoplay-mp4.sh > /media/FLASHDEVICE/autoplay-mp4.out 
-#@reboot  bash -x /media/FLASHDEVICE/autoplay-mp4.sh > /media/FLASHDEVICE/autoplay-mp4.out 
+#MEDIAPI AUTOPLAY | crontab -e
+#@reboot    bash -x /media/FLASHDEVICE/autoplay-mp4.sh > /media/FLASHDEVICE/autoplay-mp4.out 
+#* * * * *  bash -x /media/FLASHDEVICE/autoplay-mp4.sh > /media/FLASHDEVICE/autoplay-mp4.out 
+#* * * * *  bash -x /media/FLASHDEVICE/stop-mp4.sh > /media/FLASHDEVICE/autoplay-mp4.out 
 ```
 
 #FAQ
@@ -83,6 +84,11 @@ crontab -e
 Q) How do I boot up normally and not play videos
 
 A) Remove the usb stick
+
+Q) How to stop the videos while playing
+
+A) ssh to the mediapi
+echo "stop" > /tmp/play-mp4.txt
 
 #Resources:
 
