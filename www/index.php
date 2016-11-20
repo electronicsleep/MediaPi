@@ -31,8 +31,9 @@ session_start();
 body {
     background-image: url("background.jpg");
     background-color: #cccccc;
-    font-family: "Lucida Grande", "Luxi Sans", "Bitstream Vera Sans", "Trebuchet MS", helvetica, verdana, arial, sans-serif;
+    font-family: "Lucida Grande", "Luxi Sans", helvetica, verdana, arial, sans-serif;
     font-size: 10px;
+    width: 800px;
 } 
 
 div.transbox {
@@ -41,6 +42,8 @@ div.transbox {
     border: 1px solid black;
     opacity: 0.6;
     filter: alpha(opacity=60); 
+    padding: 20px;
+    margin: 20px;
 }
 
 div.transbox p {
@@ -50,15 +53,15 @@ div.transbox p {
 }
 
 a:link {
- color: #000000;
+    color: #000000;
 }
 
 a:active, a:visited {
- color: #222222;
+    color: #222222;
 }
 
 a:hover {
- color: #111111;
+    color: #111111;
 }
 
 </style>
@@ -74,7 +77,7 @@ $file = '/tmp/playing-now.txt';
 $playing_now = file_get_contents($file);
 $playing_now = basename($playing_now);
 print '<br><a href="./">Home</a>';
-print "<br><b>Playing Now: $playing_now</b>";
+print "<br><h1>Playing Now: $playing_now</h1>";
 
 //Post comment on movie
 
@@ -135,19 +138,15 @@ $file = file_get_contents('/tmp/play-mp4.txt', true);
 print "<p>music already playing file exists";
 
 } else {
-print '<br><a href="./?movie=relax">Play movies | relax</a>';
-listFolderFiles('/media/FLASHDEVICE/video/sk8');
-print '<br><a href="./?movie=raw-footage">Play movies | raw-footage</a>';
+print '<br><a href="./?movie=featured">Play movies | featured</a>';
 listFolderFiles('/media/FLASHDEVICE/video/featured');
-print '<br><a href="./?movie=gopro-sdcard">Play movies | gopro-sdcard</a>';
-listFolderFiles('/media/9016-4EF8/DCIM/100GOPRO/');
-print '<br><a href="./?movie=awesome">Play movies | awesome</a>';
-listFolderFiles('/media/FLASHDEVICE/video/awesome');
 print '<br><a href="./?movie=stop">Stop movies</a>';
 print '<br>';
 }
 
+print '<h1>Videos disk space:</h1>';
 print '<iframe src="d3-disk-space.php" width="600" height="400" frameborder=0 scrolling="no"></iframe>';
+print '<h1>Good vs Bad Ratings:</h1>';
 print '<iframe src="d3-rating.php" width="600" height="400" frameborder=0 scrolling="no"></iframe>';
 
 print '</div></div>';
