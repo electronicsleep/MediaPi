@@ -11,6 +11,8 @@ Turn your old TV into a rain machine or play your favorite videos
 
 ![Alt text](screenshot.jpg?raw=true "ScreenShot")
 
+![Alt text](screenshot-web.jpg?raw=true "ScreenShot Web Interface")
+
 #Requirements:
 
 RasberryPi2
