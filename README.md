@@ -9,6 +9,10 @@ Store movies and scrips on a old thumb drive and play at boot
 
 Turn your old TV into a rain machine or play your favorite videos
 
+Can also play mp3 files
+
+Web interface has visual representation of video size commenting on videos and start stop control
+
 ![Alt text](screenshot.jpg?raw=true "ScreenShot")
 
 ![Alt text](screenshot-web.jpg?raw=true "ScreenShot Web Interface")
@@ -26,6 +30,8 @@ HDMI cable
 Old TV
 
 Projector - optional
+
+Wifi device - optional for web interface
 
 Recycle (what is old is new again)
 
@@ -74,6 +80,13 @@ Portable
 
 crontab -e
 
+```
+#MEDIAPI AUTOPLAY | crontab -e
+#@reboot    bash -x /media/FLASHDEVICE/autoplay-mp4.sh > /media/FLASHDEVICE/autoplay-mp4.out 
+#* * * * *  bash -x /media/FLASHDEVICE/autoplay-mp4.sh > /media/FLASHDEVICE/autoplay-mp4.out 
+#* * * * *  bash -x /media/FLASHDEVICE/stop-mp4.sh > /media/FLASHDEVICE/autoplay-mp4.out 
+```
+
 #Install Web Interface:
 
 1. Install apache, php, setup wifi, permissions on web folder
@@ -81,13 +94,6 @@ crontab -e
 2. Deploy files to MediaPi (deploy.sh)
 
 3. Control via web interface, start, stop, comment
-
-```
-#MEDIAPI AUTOPLAY | crontab -e
-#@reboot    bash -x /media/FLASHDEVICE/autoplay-mp4.sh > /media/FLASHDEVICE/autoplay-mp4.out 
-#* * * * *  bash -x /media/FLASHDEVICE/autoplay-mp4.sh > /media/FLASHDEVICE/autoplay-mp4.out 
-#* * * * *  bash -x /media/FLASHDEVICE/stop-mp4.sh > /media/FLASHDEVICE/autoplay-mp4.out 
-```
 
 #FAQ
 
