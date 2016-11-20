@@ -29,7 +29,7 @@ session_start();
 ?>
 <style>
 body {
-    background-image: url("gopro.jpg");
+    background-image: url("background.jpg");
     background-color: #cccccc;
     font-family: "Lucida Grande", "Luxi Sans", "Bitstream Vera Sans", "Trebuchet MS", helvetica, verdana, arial, sans-serif;
     font-size: 10px;
