@@ -72,6 +72,14 @@ Portable
 
 crontab -e
 
+#Install Web Interface:
+
+1. Install apache, php, setup wifi, permissions on web folder
+
+2. Deploy files to MediaPi (deploy.sh)
+
+3. Control via web interface, start, stop, comment
+
 ```
 #MEDIAPI AUTOPLAY | crontab -e
 #@reboot    bash -x /media/FLASHDEVICE/autoplay-mp4.sh > /media/FLASHDEVICE/autoplay-mp4.out 
@@ -87,7 +95,7 @@ A) Remove the usb stick
 
 Q) How to stop the videos while playing
 
-A) ssh to the mediapi: echo "stop" > /tmp/play-mp4.txt
+A) ssh to the mediapi: echo "stop" > /tmp/play-mp4.txt or use web interface
 
 #Resources:
 
