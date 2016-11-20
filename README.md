@@ -9,9 +9,11 @@ Store movies and scrips on a old thumb drive and play at boot
 
 Turn your old TV into a rain machine or play your favorite videos
 
+Web interface has visual representation of video size, commenting on videos and start stop control
+
 Can also play mp3 files
 
-Web interface has visual representation of video size commenting on videos and start stop control
+Cheap digital video frame
 
 ![Alt text](screenshot.jpg?raw=true "ScreenShot")
 
@@ -31,7 +33,7 @@ Old TV
 
 Projector - optional
 
-Wifi device - optional for web interface
+Wifi USB device - optional for web interface
 
 Recycle (what is old is new again)
 
@@ -41,9 +43,15 @@ autoplay-mp4.sh
 
 play-mp4.sh
 
+stop-mp4.sh
+
+www -> web interface
+
 #Features:
 
 Movie Playlists
+
+Web Interface
 
 #Flashcard Contents:
 
@@ -51,6 +59,7 @@ Movie Playlists
 DIR: /media/FLASHDEVICE
 -> autplay-mp4.sh
 -> play-mp4.sh
+-> stop-mp4.sh
 -> video -> featured -> video.mp4
             raw-footage -> your movies
             relax -> your movies
