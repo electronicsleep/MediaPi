@@ -1,4 +1,5 @@
 #!/bin/bash
+
 # Author: Chris Robertson <electronicsleep@gmail.com>
 # Git: https://github.com/electronicsleep/MediaPi
 # Date: 03/15/2016

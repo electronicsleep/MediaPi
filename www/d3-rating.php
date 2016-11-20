@@ -1,4 +1,9 @@
 <?php
+# Author: Chris Robertson <electronicsleep@gmail.com>
+# Git: https://github.com/electronicsleep/MediaPi
+# Date: 03/15/2016
+# Purpose: Movie Looper for the Rasberry Pi
+# Released under the BSD license
 
 $file = 'posts.txt';
 $posts = file_get_contents($file);
