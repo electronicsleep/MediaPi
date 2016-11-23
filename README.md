@@ -11,9 +11,9 @@ Turn your old TV into a rain machine or play your favorite videos
 
 Web interface has visual representation of video size, commenting on videos and start stop control
 
-Can also play mp3 files
+Can also play mp3 files to make a Cheap digital video frame
 
-Cheap digital video frame
+Future ideas include collaborative movie editing and viewing
 
 ![Alt text](screenshot.jpg?raw=true "ScreenShot")
 
