@@ -7,7 +7,7 @@ Can play movies continuously on boot or respond to commands
 
 Store movies and scrips on a old thumb drive and play at boot
 
-Turn your old TV into a rain machine or play your favorite videos
+Turn your old TV into a movie player or play your favorite videos
 
 Web interface has visual representation of video size, commenting on videos and start stop control
 
@@ -58,6 +58,7 @@ Web Interface
 ```
 DIR: /media/FLASHDEVICE
 -> autplay-mp4.sh
+-> play-mp3.sh
 -> play-mp4.sh
 -> stop-mp4.sh
 -> video -> featured -> video.mp4
@@ -68,12 +69,6 @@ DIR: /media/FLASHDEVICE
 #Examples:
 
 Show footage on TV with friends while editing
-
-Peaceful Rain Example Idea
-
-https://www.youtube.com/watch?v=WlPUJHeWvpg
-
-Great for parties or events
 
 GoPro Videos
 
