@@ -1,6 +1,8 @@
 MEDIA PI
 ========
 
+Author: https://github.com/electronicsleep
+
 Movie Looper for the Rasberry Pi
 
 Can play movies continuously on boot or respond to commands

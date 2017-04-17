@@ -1,5 +1,5 @@
 <?php
-# Author: Chris Robertson <electronicsleep@gmail.com>
+# Author: https://github.com/electronicsleep
 # Git: https://github.com/electronicsleep/MediaPi
 # Date: 03/15/2016
 # Purpose: Movie Looper for the Rasberry Pi
