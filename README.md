@@ -44,19 +44,19 @@ sudo mount /media/usb
 
 # Files:
 
-autoplay-mp4.sh
+autoplay-mp4.sh -> file ussed to write playlist file and start video loop
 
-play-mp4.sh
+play-mp4.sh -> use for startup via cronjob
 
-stop-mp4.sh
+stop-mp4.sh -> stop all videos via kill
 
 www -> web interface
 
 # Features:
 
-Movie Playlists
+Movie Playlists: order and continuously play movies
 
-Web Interface
+Web Interface: see what video is playing and comment/rate video
 
 # Flashcard Contents:
 
