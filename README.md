@@ -21,26 +21,19 @@ Future ideas include collaborative movie editing and viewing
 
 ![Alt text](screenshot-web.jpg?raw=true "ScreenShot Web Interface")
 
-#Requirements:
+# Requirements:
 
-RasberryPi2
+RasberryPi2, Raspbian OS
 
-Raspbian OS
-
-Thumbrive
-
-HDMI cable
-
-Old TV
+Thumbrive, HDMI cable, Old TV
 
 Projector - optional
 
 Wifi USB device - optional for web interface
 
-Recycle (what is old is new again)
 
 
-#Setup USB media
+# Setup USB media
 
 ```
 sudo mkdir /media/usb
@@ -49,7 +42,7 @@ sudo vim /etc/fstab
 sudo mount /media/usb
 ```
 
-#Files:
+# Files:
 
 autoplay-mp4.sh
 
@@ -59,13 +52,13 @@ stop-mp4.sh
 
 www -> web interface
 
-#Features:
+# Features:
 
 Movie Playlists
 
 Web Interface
 
-#Flashcard Contents:
+# Flashcard Contents:
 
 ```
 DIR: /media/usb
@@ -78,7 +71,7 @@ DIR: /media/usb
             relax -> your movies
 ```
 
-#Examples:
+# Examples:
 
 Show footage on TV with friends while editing
 
@@ -86,7 +79,7 @@ GoPro Videos
 
 Portable
 
-#Install:
+# Install:
 
 1. Ensure omxplayer is installed.
 
@@ -98,6 +91,8 @@ sudo apt-get install omxplayer
 
 3. Install cronjob to autoplay movies at reboot change location if needed, comment out.
 
+# Start at boot (optional)
+
 crontab -e
 
 ```
@@ -107,7 +102,7 @@ crontab -e
 #* * * * *  bash -x /media/usb/stop-mp4.sh > /media/usb/autoplay-mp4.out 
 ```
 
-#Install Web Interface:
+# Install Web Interface:
 
 1. Install apache, php, setup wifi, permissions on web folder
 
@@ -115,7 +110,7 @@ crontab -e
 
 3. Control via web interface, start, stop, comment
 
-#FAQ
+# FAQ
 
 Q) How do I boot up normally and not play videos
 
@@ -125,7 +120,9 @@ Q) How to stop the videos while playing
 
 A) ssh to the mediapi: echo "stop" > /tmp/play-mp4.txt or use web interface
 
-#Resources:
+Recycle (what is old is new again)
+
+# Resources:
 
 https://www.raspberrypi.org/products/raspberry-pi-2-model-b/
 
