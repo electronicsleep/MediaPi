@@ -74,13 +74,16 @@ DIR: /media/usb
             relax -> your relaxing meditate movies
 ```
 
-# Run
+# Run (via ssh on pi)
 
 ```
 sudo apt-get install screen -y
 
 screen
 bash /media/usb/autoplay-mp4.sh
+
+# Stop
+bash /media/usb/stop-mp4.sh
 ```
 
 # Features:
