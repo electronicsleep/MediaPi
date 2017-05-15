@@ -19,6 +19,6 @@ cp -rf video $USB
 
 echo "Copy Web Interface"
 HOST=pi@mediapi.local
-scp www/* $HOST:/var/www/
+scp www/* $HOST:/var/www/html/
 
 echo "Done"

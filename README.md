@@ -23,7 +23,7 @@ Future ideas include collaborative movie editing and viewing
 
 # Requirements:
 
-Working RasberryPi2, Raspbian OS
+Working RasberryPi2, Raspbian 8
 
 Thumbrive, HDMI cable, Old TV
 
@@ -35,8 +35,11 @@ Wifi USB device - optional for web interface
 
 ```
 sudo mkdir /media/usb
+#One time USB device mount
+sudo mount -t vfat /dev/sda /media/usb
+#Keep USB device
 sudo vim /etc/fstab
-#/dev/sda /media/usb vfat rw,user,defaults 0 2
+/dev/sda /media/usb vfat rw,user,defaults 0 2
 sudo mount /media/usb
 ```
 
@@ -66,9 +69,18 @@ DIR: /media/usb
 -> play-mp3.sh
 -> play-mp4.sh
 -> stop-mp4.sh
--> video -> featured -> main video playlist
+-> video -> featured -> main video playlist [Add first videos here!]
             raw-footage -> your recently recorded movies
             relax -> your relaxing meditate movies
+```
+
+# Run
+
+```
+sudo apt-get install screen -y
+
+screen
+bash /media/usb/autoplay-mp4.sh
 ```
 
 # Features:
@@ -111,6 +123,16 @@ sudo apt-get install apache2 php5 -y
 ```
 
 2. Deploy files to MediaPi (deploy.sh)
+
+```
+bash deploy.sh
+```
+
+#remove old html dir
+
+```
+rm /var/www/html/index.html
+```
 
 3. Control via web interface, start, stop, comment
 
