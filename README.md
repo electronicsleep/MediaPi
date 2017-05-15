@@ -23,15 +23,13 @@ Future ideas include collaborative movie editing and viewing
 
 # Requirements:
 
-RasberryPi2, Raspbian OS
+Working RasberryPi2, Raspbian OS
 
 Thumbrive, HDMI cable, Old TV
 
 Projector - optional
 
 Wifi USB device - optional for web interface
-
-
 
 # Setup USB media
 
@@ -42,9 +40,17 @@ sudo vim /etc/fstab
 sudo mount /media/usb
 ```
 
-# Files:
+# Install:
 
-autoplay-mp4.sh -> file ussed to write playlist file and start video loop
+Ensure omxplayer is installed.
+
+```
+sudo apt-get install omxplayer
+```
+
+# Install files on USB media:
+
+autoplay-mp4.sh -> file used to write playlist file and start video loop
 
 play-mp4.sh -> use for startup via cronjob
 
@@ -52,13 +58,7 @@ stop-mp4.sh -> stop all videos via kill
 
 www -> web interface
 
-# Features:
-
-Movie Playlists: order and continuously play movies
-
-Web Interface: see what video is playing and comment/rate video
-
-# Flashcard Contents:
+# Example Flashcard Contents:
 
 ```
 DIR: /media/usb
@@ -71,6 +71,12 @@ DIR: /media/usb
             relax -> your relaxing meditate movies
 ```
 
+# Features:
+
+Movie Playlists: Order and continuously play movies
+
+Web Interface: See what video is playing and comment/rate video
+
 # Uses:
 
 Show footage on TV with friends while editing
@@ -81,17 +87,9 @@ Portable Movie player
 
 Recycle (what is old is new again)
 
-# Install:
+Put your movies and files on a USB flash device using structure above.
 
-1. Ensure omxplayer is installed.
-
-```
-sudo apt-get install omxplayer
-```
-
-2. Put your movies and files on a USB flash device using structure above.
-
-3. Install cronjob to autoplay movies at reboot change location if needed, comment out.
+Install cronjob to autoplay movies at reboot change location if needed, comment out.
 
 # Start at boot (optional)
 
