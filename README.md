@@ -66,18 +66,20 @@ DIR: /media/usb
 -> play-mp3.sh
 -> play-mp4.sh
 -> stop-mp4.sh
--> video -> featured -> video.mp4
-            raw-footage -> your movies
-            relax -> your movies
+-> video -> featured -> main video playlist
+            raw-footage -> your recently recorded movies
+            relax -> your relaxing meditate movies
 ```
 
-# Examples:
+# Uses:
 
 Show footage on TV with friends while editing
 
-GoPro Videos
+Review recorded GoPro Videos
 
-Portable
+Portable Movie player
+
+Recycle (what is old is new again)
 
 # Install:
 
@@ -120,7 +122,6 @@ Q) How to stop the videos while playing
 
 A) ssh to the mediapi: echo "stop" > /tmp/play-mp4.txt or use web interface
 
-Recycle (what is old is new again)
 
 # Resources:
 
