@@ -39,6 +39,7 @@ sudo mkdir /media/usb
 sudo mount -t vfat /dev/sda /media/usb
 #Keep USB device
 sudo vim /etc/fstab
+#Add to fstab
 /dev/sda /media/usb vfat rw,user,defaults 0 2
 sudo mount /media/usb
 ```
@@ -112,9 +113,8 @@ crontab -e
 
 ```
 #MEDIAPI AUTOPLAY | crontab -e
-#@reboot    bash -x /media/usb/autoplay-mp4.sh > /media/usb/autoplay-mp4.out 
-#* * * * *  bash -x /media/usb/autoplay-mp4.sh > /media/usb/autoplay-mp4.out 
-#* * * * *  bash -x /media/usb/stop-mp4.sh > /media/usb/autoplay-mp4.out 
+# @reboot    bash -x /media/usb/autoplay-mp4.sh > /media/usb/autoplay-mp4.out 
+# * * * * *  bash -x /media/usb/autoplay-mp4.sh > /media/usb/autoplay-mp4.out 
 ```
 
 # Install Web Interface:
