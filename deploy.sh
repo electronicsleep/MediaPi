@@ -12,12 +12,12 @@
 # sudo chmod -R 775 /var/www
 # sudo chgrp -R www-data /var/www/
 
-echo "Copy Scripts to USB device"
-USB='/Volumes/USBDRIVE'
-cp *.sh $USB
-cp -rf video $USB
+#echo "Deploy Scripts to USB device"
+#USB='/Volumes/USBDRIVE'
+#cp *.sh $USB
+#cp -rf video $USB
 
-echo "Copy Web Interface"
+echo "Deploy Web Interface"
 HOST=pi@mediapi.local
 scp www/* $HOST:/var/www/html/
 

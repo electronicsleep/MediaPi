@@ -140,7 +140,7 @@ $file = file_get_contents('/tmp/play-mp4.txt', true);
 
 } elseif (file_exists('/tmp/playing-mp3.txt')) {
 
-print "<p>music already playing file exists";
+#print "<p>music already playing file exists";
 
 } else {
 print '<br><a href="./?movie=featured">Play movies | featured</a>';
@@ -149,9 +149,9 @@ print '<br><a href="./?movie=stop">Stop movies</a>';
 print '<br>';
 }
 
-print '<h1>Videos disk space:</h1>';
-print '<iframe src="d3-disk-space.php" width="600" height="400" frameborder=0 scrolling="no"></iframe>';
-print '<h1>Good vs Bad Ratings:</h1>';
+#print '<h1>Videos disk space:</h1>';
+#print '<iframe src="d3-disk-space.php" width="600" height="400" frameborder=0 scrolling="no"></iframe>';
+print '<h1>Bad/Good Ratings:</h1>';
 print '<iframe src="d3-rating.php" width="600" height="400" frameborder=0 scrolling="no"></iframe>';
 
 print '</div></div>';
