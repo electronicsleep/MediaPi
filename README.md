@@ -36,7 +36,7 @@ Wifi USB device - optional for web interface
 ```
 sudo mkdir /media/usb
 sudo vim /etc/fstab
-/dev/sda /media/usb vfat rw,user,defaults 0 2
+#/dev/sda /media/usb vfat rw,user,defaults 0 2
 sudo mount /media/usb
 ```
 
@@ -45,7 +45,7 @@ sudo mount /media/usb
 Ensure omxplayer is installed.
 
 ```
-sudo apt-get install omxplayer
+sudo apt-get install omxplayer -y
 ```
 
 # Install files on USB media:
@@ -106,19 +106,27 @@ crontab -e
 
 1. Install apache, php, setup wifi, permissions on web folder
 
+```
+sudo apt-get install apache2 php5 -y
+```
+
 2. Deploy files to MediaPi (deploy.sh)
 
 3. Control via web interface, start, stop, comment
 
 # FAQ
 
-Q) How do I boot up normally and not play videos
+Q) How do I boot up normally and not play videos?
 
 A) Remove the usb stick
 
-Q) How to stop the videos while playing
+Q) How to stop the videos while playing?
 
 A) ssh to the mediapi: echo "stop" > /tmp/play-mp4.txt or use web interface
+
+Q) Does this require X running?
+
+A) No does not require X (although it will work either way)
 
 
 # Resources:
