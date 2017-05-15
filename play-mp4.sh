@@ -66,4 +66,6 @@ if [ -a /tmp/play-mp4.txt ]; then
  rm /tmp/play-mp4.txt
  rm /tmp/playing-mp4.txt
 
+else
+ echo "Already playing..."
 fi
