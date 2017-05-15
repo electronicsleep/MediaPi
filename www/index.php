@@ -120,7 +120,7 @@ print '<tr><td>User:</td><td><input type="text" name="user" value="'.$user.'"></
 print '<tr><td>Comment:</td><td> <input type="text" name="post"></td></tr>';
 print '<tr><td>Rating:</td><td>';
 
-print '<select name="rating"><option value="good">Good</option><option value="bad">Bad</option></select></td></tr>';
+print '<select name="rating"><option value="good">Good</option><option value="bad">Fix</option></select></td></tr>';
 
 print '<tr><td colspan=2><input type="submit" value="submit"></td></tr>';
 print '</form></table>';
@@ -151,7 +151,7 @@ print '<br>';
 
 #print '<h1>Videos disk space:</h1>';
 #print '<iframe src="d3-disk-space.php" width="600" height="400" frameborder=0 scrolling="no"></iframe>';
-print '<h1>Bad/Good Ratings:</h1>';
+print '<h1>Fix/Good Ratings:</h1>';
 print '<iframe src="d3-rating.php" width="600" height="400" frameborder=0 scrolling="no"></iframe>';
 
 print '</div></div>';
