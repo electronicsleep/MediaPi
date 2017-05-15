@@ -13,7 +13,7 @@
 #UPDATE CAMERA INFO
 USB_GOPRO=/media/0000-AAAA/DCIM/100GOPRO
 #USB INFO
-USB_NAME=/media/FLASHDEVICE
+USB_NAME=/media/usb
 
 
 if [ -a /tmp/play-mp4.txt ]; then
@@ -28,7 +28,7 @@ if [ -a /tmp/play-mp4.txt ]; then
  rm /tmp/play-mp4.txt
  touch /tmp/playing-mp4.txt
 
- FILES=/media/FLASHDEVICE/video/*
+ FILES=/media/usb/video/*
 
  ### PLAYLISTS USING INFO FROM TMP FILE
 

@@ -39,6 +39,16 @@ Wifi USB device - optional for web interface
 
 Recycle (what is old is new again)
 
+
+#Setup USB media
+
+```
+sudo mkdir /media/usb
+sudo vim /etc/fstab
+/dev/sda /media/usb vfat rw,user,defaults 0 2
+sudo mount /media/usb
+```
+
 #Files:
 
 autoplay-mp4.sh
@@ -58,7 +68,7 @@ Web Interface
 #Flashcard Contents:
 
 ```
-DIR: /media/FLASHDEVICE
+DIR: /media/usb
 -> autplay-mp4.sh
 -> play-mp3.sh
 -> play-mp4.sh
@@ -80,6 +90,10 @@ Portable
 
 1. Ensure omxplayer is installed.
 
+```
+sudo apt-get install omxplayer
+```
+
 2. Put your movies and files on a USB flash device using structure above.
 
 3. Install cronjob to autoplay movies at reboot change location if needed, comment out.
@@ -88,9 +102,9 @@ crontab -e
 
 ```
 #MEDIAPI AUTOPLAY | crontab -e
-#@reboot    bash -x /media/FLASHDEVICE/autoplay-mp4.sh > /media/FLASHDEVICE/autoplay-mp4.out 
-#* * * * *  bash -x /media/FLASHDEVICE/autoplay-mp4.sh > /media/FLASHDEVICE/autoplay-mp4.out 
-#* * * * *  bash -x /media/FLASHDEVICE/stop-mp4.sh > /media/FLASHDEVICE/autoplay-mp4.out 
+#@reboot    bash -x /media/usb/autoplay-mp4.sh > /media/usb/autoplay-mp4.out 
+#* * * * *  bash -x /media/usb/autoplay-mp4.sh > /media/usb/autoplay-mp4.out 
+#* * * * *  bash -x /media/usb/stop-mp4.sh > /media/usb/autoplay-mp4.out 
 ```
 
 #Install Web Interface:

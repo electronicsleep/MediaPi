@@ -6,8 +6,8 @@
 # Released under the BSD license
 
 #MEDIAPI AUTOPLAY | crontab -e
-#*/15 * * * *  bash -x /media/FLASHDEVICE/autoplay-mp4.sh > /media/FLASHDEVICE/autoplay-mp4.out 
-#@reboot  bash -x /media/FLASHDEVICE/autoplay-mp4.sh > /media/FLASHDEVICE/autoplay-mp4.out 
+#*/15 * * * *  bash -x /media/usb/autoplay-mp4.sh > /media/usb/autoplay-mp4.out 
+#@reboot  bash -x /media/usb/autoplay-mp4.sh > /media/usb/autoplay-mp4.out 
 
 # send playlist file used for starting movie loop play and run play-mp4 script
 
@@ -16,4 +16,4 @@ echo "featured" > /tmp/play-mp4.txt
 #echo "raw-footage" > /tmp/play-mp4.txt
 #echo "relax" > /tmp/play-mp4.txt
 
-bash -x /media/FLASHDEVICE/play-mp4.sh
+bash -x /media/usb/play-mp4.sh

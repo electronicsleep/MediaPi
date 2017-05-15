@@ -13,7 +13,7 @@ touch /tmp/playing-mp3.txt
 
 
 #ALL FILES IN MP3 DIR
-FILES=$(find /media/FLASHDEVICE/mp3/ -iname "*.mp3" -print)
+FILES=$(find /media/usb/mp3/ -iname "*.mp3" -print)
 
 for f in $FILES
 do
