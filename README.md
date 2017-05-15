@@ -3,17 +3,17 @@ MEDIA PI
 
 Author: https://github.com/electronicsleep
 
-Movie Looper for the Rasberry Pi
+Movie Looper for the Rasberry Pi using USB drive for storage
 
 Can play movies continuously on boot or respond to commands
 
 Store movies and scrips on a old thumb drive and play at boot
 
-Turn your old TV into a movie player or play your favorite videos
+Turn your old TV into a movie player or play your favorite videos or songs
 
 Web interface has visual representation of video size, commenting on videos and start stop control
 
-Can also play mp3 files to make a Cheap digital video frame
+Can also play mp3 files and  make digital video frame
 
 Future ideas include collaborative movie editing and viewing
 
