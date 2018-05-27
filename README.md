@@ -5,32 +5,6 @@ Author: https://github.com/electronicsleep
 
 Movie Looper for the Rasberry Pi using USB drive for storage
 
-Can play movies continuously on boot or respond to commands
-
-Store movies and scrips on a old thumb drive and play at boot
-
-Turn your old TV into a movie player or play your favorite videos or songs
-
-Web interface has visual representation of video size, commenting on videos and start stop control
-
-Can also play mp3 files and  make digital video frame
-
-Future ideas include collaborative movie editing and viewing
-
-![Alt text](screenshot.jpg?raw=true "ScreenShot")
-
-![Alt text](screenshot-web.jpg?raw=true "ScreenShot Web Interface")
-
-# Requirements:
-
-Working RasberryPi2, Raspbian 8
-
-Thumbrive, HDMI cable, Old TV
-
-Projector - optional
-
-Wifi USB device - optional for web interface
-
 # Setup USB media
 
 ```
@@ -61,6 +35,34 @@ play-mp4.sh -> use for startup via cronjob
 stop-mp4.sh -> stop all videos via kill
 
 www -> web interface
+
+
+Can play movies continuously on boot or respond to commands
+
+Store movies and scrips on a old thumb drive and play at boot
+
+Turn your old TV into a movie player or play your favorite videos or songs
+
+Web interface has visual representation of video size, commenting on videos and start stop control
+
+Can also play mp3 files and  make digital video frame
+
+Future ideas include collaborative movie editing and viewing
+
+![Alt text](screenshot.jpg?raw=true "ScreenShot")
+
+![Alt text](screenshot-web.jpg?raw=true "ScreenShot Web Interface")
+
+# Requirements:
+
+Working RasberryPi2, Raspbian 8
+
+Thumbrive, HDMI cable, Old TV
+
+Projector - optional
+
+Wifi USB device - optional for web interface
+
 
 # Example Flashcard Contents:
 
