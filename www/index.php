@@ -82,7 +82,11 @@ $file = '/tmp/playing-now.txt';
 $playing_now = file_get_contents($file);
 $playing_now = basename($playing_now);
 print '<br><a href="./">Home</a>';
-print "<br><h1>Playing Now: $playing_now</h1>";
+if ($playing_now == "") {
+ print "<br><h1>Playing Now: $playing_now</h1>";
+} else{
+ print "<br><h1>Not Playing</h1>";
+}
 
 //Post comment on movie
 

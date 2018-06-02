@@ -2,7 +2,6 @@
 
 # Author: https://github.com/electronicsleep
 # Git: https://github.com/electronicsleep/MediaPi
-# Date: 03/15/2016
 # Purpose: Movie Looper for the Rasberry Pi
 # Released under the BSD license
 
@@ -39,7 +38,7 @@ if [ -a /tmp/play-mp4.txt ]; then
  elif [ $PLAYLIST == 'gopro-sdcard' ]; then
   FILES=$USB_GOPRO/*.mp4
  else
-  FILES=$USB_NAME/video/featured/*.mp4
+  FILES=$USB_NAME/video/default/*.mp4
  fi
 
  echo $PLAYLIST
