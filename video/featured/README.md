@@ -1,1 +1,1 @@
-main playlist, add videos here.
+featured playlist, add videos here.

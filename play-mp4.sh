@@ -1,5 +1,4 @@
 #!/bin/bash
-
 # Author: https://github.com/electronicsleep
 # Git: https://github.com/electronicsleep/MediaPi
 # Purpose: Movie Looper for the Rasberry Pi
@@ -24,7 +23,7 @@ if [ -a /tmp/play-mp4.txt ]; then
   exit
  fi
 
- rm /tmp/play-mp4.txt
+ sudo rm /tmp/play-mp4.txt
  touch /tmp/playing-mp4.txt
 
  FILES=/media/usb/video/*
@@ -62,8 +61,8 @@ if [ -a /tmp/play-mp4.txt ]; then
 
  done
 
- rm /tmp/play-mp4.txt
- rm /tmp/playing-mp4.txt
+ sudo rm /tmp/play-mp4.txt
+ sudo rm /tmp/playing-mp4.txt
 
 else
  echo "Already playing..."

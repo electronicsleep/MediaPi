@@ -19,6 +19,7 @@
 
 echo "Deploy Web Interface"
 HOST=pi@mediapi.local
-scp www/* $HOST:/var/www/html/
+scp www/* $HOST:/var/www/
+scp *sh $HOST:/media/usb/
 
 echo "Done"

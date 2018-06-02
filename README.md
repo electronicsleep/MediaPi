@@ -111,12 +111,14 @@ Install cronjob to autoplay movies at reboot change location if needed, comment 
 
 # Start at boot (optional)
 
+as pi user
 crontab -e
 
 ```
-#MEDIAPI AUTOPLAY | crontab -e
+#MEDIAPI AUTOPLAY AT BOOT
 # @reboot    bash -x /media/usb/autoplay-mp4.sh > /media/usb/autoplay-mp4.out 
-# * * * * *  bash -x /media/usb/autoplay-mp4.sh > /media/usb/autoplay-mp4.out 
+#MEDIAPI CONTROL
+# * * * * *  bash -x /media/usb/control.sh > /media/usb/control.out
 ```
 
 # Install Web Interface:

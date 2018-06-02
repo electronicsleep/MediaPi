@@ -1,7 +1,6 @@
 <?php
 # Author: https://github.com/electronicsleep
 # Git: https://github.com/electronicsleep/MediaPi
-# Date: 03/15/2016
 # Purpose: Movie Looper for the Rasberry Pi
 # Released under the BSD license
 
@@ -10,25 +9,27 @@
 //Write csv file for videos
 
 function listFolderFiles($dir){
-    $ffs = scandir($dir);
-    $d3_videos .= "name,radius,distance\n";
-    foreach($ffs as $ff){
-        if($ff != '.' && $ff != '..'){
-            $ext=substr($ff, -3, 3);
-            $beg=substr($ff, 0, 1);
-            if ($ext == 'MP4' or $ext == 'mp4' and $beg!='.') {
-            $d3_videos .= $ff;
-            if(is_dir($dir.'/'.$ff)) listFolderFiles($dir.'/'.$ff);
-            $d3_videos .= ",";
-            $d3_videos .= filesize($dir.'/'.$ff);
-            $d3_videos .= ",2000\n";
-            }
-        }
+ $ffs = scandir($dir);
+  $d3_videos .= "name,radius,distance\n";
+  foreach($ffs as $ff){
+   if($ff != '.' && $ff != '..'){
+    $ext=substr($ff, -3, 3);
+    $beg=substr($ff, 0, 1);
+    if ($ext == 'MP4' or $ext == 'mp4' and $beg!='.'){
+     $d3_videos .= $ff;
+     if(is_dir($dir.'/'.$ff)){
+      listFolderFiles($dir.'/'.$ff);
+      $d3_videos .= ",";
+      $d3_videos .= filesize($dir.'/'.$ff);
+      $d3_videos .= ",2000\n";
+     }
     }
-
-$file = 'videos.csv';
-file_put_contents($file, $d3_videos);
+   }
+  }
+ $file = 'videos.csv';
+ file_put_contents($file, $d3_videos);
 }
+
 session_start();
 
 ?>
@@ -82,7 +83,10 @@ $file = '/tmp/playing-now.txt';
 $playing_now = file_get_contents($file);
 $playing_now = basename($playing_now);
 print '<br><a href="./">Home</a>';
-if ($playing_now == "") {
+
+//print "<p>DEBUG PN: $playing_now";
+
+if ($playing_now != "") {
  print "<br><h1>Playing Now: $playing_now</h1>";
 } else{
  print "<br><h1>Not Playing</h1>";
@@ -91,43 +95,41 @@ if ($playing_now == "") {
 //Post comment on movie
 
 if ($_REQUEST['post']) {
-$post = $_REQUEST['post'];
-$user = $_REQUEST['user'];
-$rating = $_REQUEST['rating'];
-print "<br>Movie: $playing_now";
+ $post = $_REQUEST['post'];
+ $user = $_REQUEST['user'];
+ $rating = $_REQUEST['rating'];
+ print "<br>Movie: $playing_now";
+ $_SESSION['user'] = $user;
+ $user = $_SESSION['user'];
 
-$_SESSION['user'] = $user;
+ print "<br>Post: $post";
+ print "<br>Rating: $rating";
 
-$user = $_SESSION['user'];
+ //Write text file of comments
 
-print "<br>Post: $post";
-print "<br>Rating: $rating";
+ $file = 'posts.txt';
+ $posts = file_get_contents($file);
+ $posts .= " Movie: $playing_now User: $user\n Rating: $rating\n Post: $post\n\n";
+ print '<div class="background"><div class="transbox">';
+ print "<pre>$posts</pre>";
+ print '</div></div>';
+ file_put_contents($file, $posts);
 
-//Write text file of comments
+ } else {
 
-$file = 'posts.txt';
-$posts = file_get_contents($file);
-$posts .= " Movie: $playing_now User: $user\n Rating: $rating\n Post: $post\n\n";
-print '<div class="background"><div class="transbox">';
-print "<pre>$posts</pre>";
-print '</div></div>';
-file_put_contents($file, $posts);
+ //Form to enter comments on movie
 
-} else {
+ $user = $_SESSION['user'];
 
-//Form to enter comments on movie
+ print '<table><form method="POST" action="./">';
+ print '<tr><td>User:</td><td><input type="text" name="user" value="'.$user.'"></td></tr>';
+ print '<tr><td>Comment:</td><td> <input type="text" name="post"></td></tr>';
+ print '<tr><td>Rating:</td><td>';
 
-$user = $_SESSION['user'];
+ print '<select name="rating"><option value="good">Good</option><option value="bad">Fix</option></select></td></tr>';
 
-print '<table><form method="POST" action="./">';
-print '<tr><td>User:</td><td><input type="text" name="user" value="'.$user.'"></td></tr>';
-print '<tr><td>Comment:</td><td> <input type="text" name="post"></td></tr>';
-print '<tr><td>Rating:</td><td>';
-
-print '<select name="rating"><option value="good">Good</option><option value="bad">Fix</option></select></td></tr>';
-
-print '<tr><td colspan=2><input type="submit" value="submit"></td></tr>';
-print '</form></table>';
+ print '<tr><td colspan=2><input type="submit" value="submit"></td></tr>';
+ print '</form></table>';
 
 }
 
@@ -135,22 +137,28 @@ print '</form></table>';
 
 if ($_REQUEST['movies'] != '') {
 
-$movie = $_REQUEST['movies'];
-$file = '/tmp/play-mp4.txt';
-$current .= "$movie\n";
-file_put_contents($file, $current);
+ $movies = $_REQUEST['movies'];
+ if ($movies == "stop") {
+  $file = '/tmp/stop-mp4.txt';
+ } else {
+  $file = '/tmp/play-mp4.txt';
+ }
+ $current .= "$movies\n";
+ file_put_contents($file, $current);
 
-$file = file_get_contents('/tmp/play-mp4.txt', true);
+ $file = file_get_contents('/tmp/play-mp4.txt', true);
+ //print("DEBUG P: $file");
 
 } elseif (file_exists('/tmp/playing-mp3.txt')) {
 
-#print "<p>music already playing file exists";
+ print "<p>music already playing file exists";
 
 } else {
-print '<br><a href="./?movies=default">Play movies | default</a>';
-listFolderFiles('/media/usb/video/featured');
-print '<br><a href="./?movies=stop">Stop movies</a>';
-print '<br>';
+ print '<br><a href="./?movies=default">Play movie playlist default</a>';
+ print '<br><a href="./?movies=featured">Play movie playlist featured</a>';
+ listFolderFiles('/media/usb/video/featured');
+ print '<br><a href="./?movies=stop">Stop movies</a>';
+ print '<br>';
 }
 
 #print '<h1>Videos disk space:</h1>';
