@@ -133,9 +133,9 @@ print '</form></table>';
 
 //Write the playlist file to start playing
 
-if ($_REQUEST['movie'] != '') {
+if ($_REQUEST['movies'] != '') {
 
-$movie = $_REQUEST['movie'];
+$movie = $_REQUEST['movies'];
 $file = '/tmp/play-mp4.txt';
 $current .= "$movie\n";
 file_put_contents($file, $current);
@@ -147,9 +147,9 @@ $file = file_get_contents('/tmp/play-mp4.txt', true);
 #print "<p>music already playing file exists";
 
 } else {
-print '<br><a href="./?movie=featured">Play movies | featured</a>';
-listFolderFiles('/media/FLASHDEVICE/video/featured');
-print '<br><a href="./?movie=stop">Stop movies</a>';
+print '<br><a href="./?movies=default">Play movies | default</a>';
+listFolderFiles('/media/usb/video/featured');
+print '<br><a href="./?movies=stop">Stop movies</a>';
 print '<br>';
 }
 
