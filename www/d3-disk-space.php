@@ -1,10 +1,9 @@
-<?php
+<!--
 # Author: https://github.com/electronicsleep
 # Git: https://github.com/electronicsleep/MediaPi
-# Date: 03/15/2016
 # Purpose: Movie Looper for the Rasberry Pi
 # Released under the BSD license
-?>
+-->
 <!DOCTYPE html>
 <meta charset="utf-8">
 <title>Video Disk Space</title>
@@ -45,9 +44,7 @@ d3.csv("videos.csv", type, function(error, exoplanets) {
       .style("fill", function(d) { return color(d.radius); })
     .append("title")
       .text(function(d) {
-        return d.name
-            + "\nplanet radius: " + d.radius + " EU"
-            + "\nstar distance: " + isFinite(d.distance) ? d.distance : "N/A" + " pc";
+        return d.name + "\nRadius: " + d.radius;
       });
 });
 

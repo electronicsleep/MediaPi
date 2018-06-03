@@ -8,21 +8,21 @@
 
 //Write csv file for videos
 
-function listFolderFiles($dir){
+function listFolderFiles($dir) {
  $ffs = scandir($dir);
   $d3_videos .= "name,radius,distance\n";
   foreach($ffs as $ff){
-   if($ff != '.' && $ff != '..'){
+   if($ff != '.' && $ff != '..') {
     $ext=substr($ff, -3, 3);
     $beg=substr($ff, 0, 1);
-    if ($ext == 'MP4' or $ext == 'mp4' and $beg!='.'){
+    if ($ext == 'MP4' or $ext == 'mp4' and $beg!='.') {
      $d3_videos .= $ff;
-     if(is_dir($dir.'/'.$ff)){
+     if(is_dir($dir.'/'.$ff)) {
       listFolderFiles($dir.'/'.$ff);
-      $d3_videos .= ",";
-      $d3_videos .= filesize($dir.'/'.$ff);
-      $d3_videos .= ",2000\n";
      }
+     $d3_videos .= ",";
+     $d3_videos .= filesize($dir.'/'.$ff);
+     $d3_videos .= ",$ff\n";
     }
    }
   }
@@ -156,13 +156,13 @@ if ($_REQUEST['movies'] != '') {
 } else {
  print '<br><a href="./?movies=default">Play movie playlist default</a>';
  print '<br><a href="./?movies=featured">Play movie playlist featured</a>';
- listFolderFiles('/media/usb/video/featured');
+ listFolderFiles('/media/usb/video/default');
  print '<br><a href="./?movies=stop">Stop movies</a>';
  print '<br>';
 }
 
-#print '<h1>Videos disk space:</h1>';
-#print '<iframe src="d3-disk-space.php" width="600" height="400" frameborder=0 scrolling="no"></iframe>';
+print '<h1>Videos disk space:</h1>';
+print '<iframe src="d3-disk-space.php" width="600" height="400" frameborder=0 scrolling="no"></iframe>';
 print '<h1>Fix/Good Ratings:</h1>';
 print '<iframe src="d3-rating.php" width="600" height="400" frameborder=0 scrolling="no"></iframe>';
 
