@@ -34,6 +34,8 @@ play-mp4.sh -> use for startup via cronjob
 
 stop-mp4.sh -> stop all videos via kill
 
+control.sh -> stop/start movie
+
 www -> web interface
 
 
@@ -72,6 +74,7 @@ DIR: /media/usb
 -> play-mp3.sh
 -> play-mp4.sh
 -> stop-mp4.sh
+-> control.sh
 -> video -> featured -> main video playlist [Add first videos here!]
             raw-footage -> your recently recorded movies
             relax -> your relaxing meditate movies
