@@ -1,8 +1,6 @@
 #!/bin/bash
-
 # Author: https://github.com/electronicsleep
 # Git: https://github.com/electronicsleep/MediaPi
-# Date: 03/15/2016
 # Purpose: Movie Looper for the Rasberry Pi
 # Released under the BSD license
 

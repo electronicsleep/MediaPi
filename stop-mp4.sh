@@ -1,5 +1,4 @@
 #!/bin/bash
-
 # Author: https://github.com/electronicsleep
 # Git: https://github.com/electronicsleep/MediaPi
 # Purpose: Movie Looper for the Rasberry Pi
