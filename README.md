@@ -59,7 +59,7 @@ Future ideas include collaborative movie editing and viewing
 
 Working RasberryPi2, Raspbian 8
 
-Thumbrive, HDMI cable, Old TV
+Thumb drive, HDMI cable, Old TV
 
 Projector - optional
 
@@ -138,7 +138,7 @@ sudo apt-get install apache2 php5 -y
 bash deploy.sh
 ```
 
-#remove old html dir
+#remove old html file
 
 ```
 rm /var/www/html/index.html
