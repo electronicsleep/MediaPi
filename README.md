@@ -3,20 +3,7 @@ MEDIA PI
 
 Author: https://github.com/electronicsleep
 
-Movie Looper for the Rasberry Pi using USB drive for storage
-
-# Setup USB media
-
-```
-sudo mkdir /media/usb
-#One time USB device mount
-sudo mount -t vfat /dev/sda /media/usb
-#Keep USB device
-sudo vim /etc/fstab
-#Add to fstab
-/dev/sda /media/usb vfat rw,user,defaults 0 2
-sudo mount /media/usb
-```
+Web controlled media player for the Rasberry Pi
 
 # Install:
 
@@ -34,22 +21,13 @@ play-mp4.sh -> use for startup via cronjob
 
 stop-mp4.sh -> stop all videos via kill
 
-control.sh -> stop/start movie
+control.sh -> stop/start media
 
 www -> web interface
 
-
-Can play movies continuously on boot or respond to commands
-
-Store movies and scrips on a old thumb drive and play at boot
+Can play movies continuously on boot or respond to commands via web interface
 
 Turn your old TV into a movie player or play your favorite videos or songs
-
-Web interface has visual representation of video size, commenting on videos and start stop control
-
-Can also play mp3 files and  make digital video frame
-
-Future ideas include collaborative movie editing and viewing
 
 ![Alt text](screenshot.jpg?raw=true "ScreenShot")
 
@@ -59,58 +37,53 @@ Future ideas include collaborative movie editing and viewing
 
 Working RasberryPi2, Raspbian 8
 
-Thumb drive, HDMI cable, Old TV
+HDMI cable, TV with HDMI
 
-Projector - optional
+Wifi USB device (using LB-Link) - for access to ssh/web interface
 
-Wifi USB device - optional for web interface
+LB-Link USB Wi-Fi Dongle with Antenna for Raspberry Pi PC
 
 
-# Example Flashcard Contents:
+# Scripts:
 
 ```
-DIR: /media/usb
+DIR: /home/pi/scripts
 -> autplay-mp4.sh
 -> play-mp3.sh
 -> play-mp4.sh
 -> stop-mp4.sh
 -> control.sh
--> video -> featured -> main video playlist [Add first videos here!]
-            raw-footage -> your recently recorded movies
-            relax -> your relaxing meditate movies
 ```
 
-# Run (via ssh on pi)
+# Run: (via ssh on pi)
 
 ```
 sudo apt-get install screen -y
 
 screen
-bash /media/usb/autoplay-mp4.sh
+bash /home/pi/scripts/autoplay-mp4.sh
 
 # Stop
-bash /media/usb/stop-mp4.sh
+bash /home/pi/scripts/media/usb/stop-mp4.sh
 ```
 
 # Features:
 
-Movie Playlists: Order and continuously play movies
+Movie Playlists: Continuously play movies
 
-Web Interface: See what video is playing and comment/rate video
+Web Interface: See what video is playing and start and stop media
 
 # Uses:
 
-Show footage on TV with friends while editing
+Show footage on TV with friends
 
 Review recorded GoPro Videos
 
-Portable Movie player
+Small Portable Movie player
 
-Recycle (what is old is new again)
+Recycle (repurpose an old not smart TV)
 
-Put your movies and files on a USB flash device using structure above.
-
-Install cronjob to autoplay movies at reboot change location if needed, comment out.
+Install scripts to autoplay movies at boot 
 
 # Start at boot (optional)
 
@@ -118,10 +91,11 @@ as pi user
 crontab -e
 
 ```
-#MEDIAPI AUTOPLAY AT BOOT
-# @reboot    bash -x /media/usb/autoplay-mp4.sh > /media/usb/autoplay-mp4.out 
-#MEDIAPI CONTROL
-# * * * * *  bash -x /media/usb/control.sh > /media/usb/control.out
+#MediaPi: Autoplay at boot
+# @reboot    bash -x /home/pi/autoplay-mp4.sh > /home/pi/autoplay-mp4.out 
+#MediaPi: Control script for web interface control
+@reboot    bash -x /home/pi/scripts/mediapi.sh >> /home/pi/scripts/mediapi.log 2>&1
+# * * * * *  bash -x /home/pi/scripts/control.sh >> /home/pi/scripts/control.log 2>&1
 ```
 
 # Install Web Interface:
@@ -132,25 +106,29 @@ crontab -e
 sudo apt-get install apache2 php5 -y
 ```
 
-2. Deploy files to MediaPi (deploy.sh)
+2. Deploy files to MediaPi
 
 ```
 bash deploy.sh
 ```
 
-#remove old html file
+3. Remove old html file
 
 ```
 rm /var/www/html/index.html
 ```
 
-3. Control via web interface, start, stop, comment
+4. Control via web interface, start, stop, comment
 
-# FAQ
+```
+Go to your rasberrypi Ip address (ifconfig) 
+```
+
+# FAQ:
 
 Q) How do I boot up normally and not play videos?
 
-A) Remove the usb stick
+A) Comment out the autoplay cronjob if enabled
 
 Q) How to stop the videos while playing?
 
@@ -160,9 +138,10 @@ Q) Does this require X running?
 
 A) No does not require X (although it will work either way)
 
-
 # Resources:
 
 https://www.raspberrypi.org/products/raspberry-pi-2-model-b/
 
 https://www.raspberrypi.org/downloads/raspbian/
+
+https://elinux.org/RPi_USB_Wi-Fi_Adapters
