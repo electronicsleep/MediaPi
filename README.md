@@ -91,11 +91,8 @@ as pi user
 crontab -e
 
 ```
-#MediaPi: Autoplay at boot
-# @reboot    bash -x /home/pi/autoplay-mp4.sh > /home/pi/autoplay-mp4.out 
-#MediaPi: Control script for web interface control
+#MediaPi: script for media control
 @reboot    bash -x /home/pi/scripts/mediapi.sh >> /home/pi/scripts/mediapi.log 2>&1
-# * * * * *  bash -x /home/pi/scripts/control.sh >> /home/pi/scripts/control.log 2>&1
 ```
 
 # Install Web Interface:
