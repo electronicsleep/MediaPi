@@ -4,7 +4,7 @@
 # Purpose: MediaPi - Media player web interface for the Rasberry Pi
 # Released under the BSD license
 
-DIR=/var/www
+DIR=/var/www/html
 IFS=$'\n'
 
 if [ -a /tmp/mediapi-play-mp3.txt ]; then

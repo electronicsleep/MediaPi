@@ -12,7 +12,7 @@
 #USB_GOPRO=/media/0000-AAAA/DCIM/100GOPRO
 #USB INFO
 #USB_NAME=/media/usb
-USB_NAME=/var/www
+USB_NAME=/var/www/html
 
 
 if [ -a /tmp/mediapi-play-mp4.txt ]; then

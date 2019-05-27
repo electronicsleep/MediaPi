@@ -6,6 +6,8 @@
 
 # Stop mediapi / omxplayer player
 
+echo $(ps aux | grep mediapi-play-mp3)
+kill $(ps aux | grep mediapi-play-mp3 | awk '{print $2}')
 echo $(ps aux | grep mediapi-play-mp4)
 kill $(ps aux | grep mediapi-play-mp4 | awk '{print $2}')
 echo $(ps aux | grep 'omxplayer')
