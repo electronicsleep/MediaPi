@@ -1,12 +1,8 @@
 <?php
 # Author: https://github.com/electronicsleep
 # Git: https://github.com/electronicsleep/MediaPi
-# Purpose: Movie Looper for the Rasberry Pi
+# Purpose: Media player for the Rasberry Pi
 # Released under the BSD license
-
-//Play movies with MediaPi
-
-//Write csv file for videos
 
 function listFolderFiles($dir) {
  $ffs = scandir($dir);
@@ -35,7 +31,7 @@ session_start();
 ?>
 <style>
 body {
-    background-image: url("background.jpg");
+    //background-image: url("background.jpg");
     background-color: #cccccc;
     font-family: "Lucida Grande", "Luxi Sans", helvetica, verdana, arial, sans-serif;
     font-size: 10px;
@@ -76,20 +72,18 @@ a:hover {
 <?php
 
 print '<div class="background"><div class="transbox">';
+print '<br><h1><a href="/">MediaPi</a></h1>';
 
 //Show playing now
 
-$file = '/tmp/playing-now.txt';
+$file = '/tmp/mediapi-playing-now.txt';
 $playing_now = file_get_contents($file);
 $playing_now = basename($playing_now);
-print '<br><a href="./">Home</a>';
-
-//print "<p>DEBUG PN: $playing_now";
 
 if ($playing_now != "") {
- print "<br><h1>Playing Now: $playing_now</h1>";
+ print "<br><h2>Playing Now: $playing_now</h2>";
 } else{
- print "<br><h1>Not Playing</h1>";
+ print "<br><h2>Not Playing</h2>";
 }
 
 //Post comment on movie
@@ -121,6 +115,7 @@ if ($_REQUEST['post']) {
 
  $user = $_SESSION['user'];
 
+ /*
  print '<table><form method="POST" action="./">';
  print '<tr><td>User:</td><td><input type="text" name="user" value="'.$user.'"></td></tr>';
  print '<tr><td>Comment:</td><td> <input type="text" name="post"></td></tr>';
@@ -130,42 +125,57 @@ if ($_REQUEST['post']) {
 
  print '<tr><td colspan=2><input type="submit" value="submit"></td></tr>';
  print '</form></table>';
+ */
 
 }
 
-//Write the playlist file to start playing
+//Write the playlist file to start playing movies
 
 if ($_REQUEST['movies'] != '') {
 
  $movies = $_REQUEST['movies'];
  if ($movies == "stop") {
-  $file = '/tmp/stop-mp4.txt';
+  $file = '/tmp/mediapi-stop.txt';
  } else {
-  $file = '/tmp/play-mp4.txt';
+  $file = '/tmp/mediapi-play-mp4.txt';
  }
  $current .= "$movies\n";
  file_put_contents($file, $current);
 
- $file = file_get_contents('/tmp/play-mp4.txt', true);
- //print("DEBUG P: $file");
+ //$file = file_get_contents('/tmp/mediapi-play-mp4.txt', true);
 
-} elseif (file_exists('/tmp/playing-mp3.txt')) {
+//Write the playlist for to start playing music
 
- print "<p>music already playing file exists";
+} elseif ($_REQUEST['music'] != '') {
+
+ $music = $_REQUEST['music'];
+ if ($music == "stop") {
+  $file = '/tmp/mediapi-stop.txt';
+ } else {
+  $file = '/tmp/mediapi-play-mp3.txt';
+ }
+ $current .= "$music\n";
+ file_put_contents($file, $current);
+
+ //$file = file_get_contents('/tmp/mediapi-play-mp3.txt', true);
 
 } else {
- print '<br><a href="./?movies=default">Play movie playlist default</a>';
- print '<br><a href="./?movies=featured">Play movie playlist featured</a>';
+ print '<br><a href="./?movies=folder">Play movie folder</a>';
+ print '<br><a href="./?music=folder">Play music folder</a>';
+ //For different playlists
+ //print '<br><a href="./?movies=default">Play movie playlist default</a>';
+ //print '<br><a href="./?movies=featured">Play movie playlist featured</a>';
  listFolderFiles('/media/usb/video/default');
- print '<br><a href="./?movies=stop">Stop movies</a>';
+ print '<br><a href="./?movies=stop">Stop media</a>';
  print '<br>';
 }
 
+/*
 print '<h1>Videos disk space:</h1>';
 print '<iframe src="d3-disk-space.php" width="600" height="400" frameborder=0 scrolling="no"></iframe>';
 print '<h1>Fix/Good Ratings:</h1>';
 print '<iframe src="d3-rating.php" width="600" height="400" frameborder=0 scrolling="no"></iframe>';
+*/
 
 print '</div></div>';
-
 ?>
