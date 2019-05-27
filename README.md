@@ -1,9 +1,9 @@
 MEDIA PI
 ========
 
-Author: https://github.com/electronicsleep
+MediaPi - Media player web interface for the Rasberry Pi
 
-Web controlled media player for the Rasberry Pi
+Author: https://github.com/electronicsleep
 
 # Install:
 
@@ -12,6 +12,43 @@ Ensure omxplayer is installed.
 ```
 sudo apt-get install omxplayer -y
 ```
+
+# Install Web Interface:
+
+1. Install apache, php, setup wifi, permissions on web folder and add media
+
+```
+sudo apt-get install apache2 php -y
+
+```
+
+2. Setup hosts file for mediapi.local and deploy files
+
+```
+# create hosts entry (mediapi.local) update permissions then deploy
+
+mkdir /home/pi/scripts
+
+sudo chown -R pi /var/www/html
+sudo chmod -R 775 /var/www/html
+sudo chgrp -R www-data /var/www/html
+
+bash deploy.sh
+```
+
+3. Remove default html file
+
+```
+rm /var/www/html/index.html
+```
+
+4. Control via web interface, start, stop, comment
+
+```
+Launch http://mediapi.local in your browseer to access web interface
+```
+
+
 
 # Install files on USB media:
 
@@ -95,47 +132,23 @@ crontab -e
 @reboot    bash -x /home/pi/scripts/mediapi.sh >> /home/pi/scripts/mediapi.log 2>&1
 ```
 
-# Install Web Interface:
-
-1. Install apache, php, setup wifi, permissions on web folder
-
-```
-sudo apt-get install apache2 php5 -y
-```
-
-2. Deploy files to MediaPi
-
-```
-bash deploy.sh
-```
-
-3. Remove old html file
-
-```
-rm /var/www/html/index.html
-```
-
-4. Control via web interface, start, stop, comment
-
-```
-Go to your rasberrypi Ip address (ifconfig) 
-```
-
 # FAQ:
 
 Q) How do I boot up normally and not play videos?
 
-A) Comment out the autoplay cronjob if enabled
+A) Comment out the mediapi cron
 
 Q) How to stop the videos while playing?
 
-A) ssh to the mediapi: echo "stop" > /tmp/play-mp4.txt or use web interface
+A) ssh to the mediapi: echo "stop" > /tmp/mediapi-play-mp4.txt or use web interface
 
 Q) Does this require X running?
 
 A) No does not require X (although it will work either way)
 
 # Resources:
+
+https://www.raspberrypi.org/
 
 https://www.raspberrypi.org/products/raspberry-pi-2-model-b/
 
