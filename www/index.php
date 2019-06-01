@@ -26,13 +26,15 @@ function listFolderFiles($dir) {
  file_put_contents($file, $d3_videos);
 }
 
+$filePath = "/var/www/html";
+
 session_start();
 
 ?>
 <style>
 body {
     //background-image: url("background.jpg");
-    background-color: #cccccc;
+    background-color: #ffffff;
     font-family: "Lucida Grande", "Luxi Sans", helvetica, verdana, arial, sans-serif;
     font-size: 10px;
     width: 800px;
@@ -40,7 +42,7 @@ body {
 
 div.transbox {
     margin: 30px;
-    background-color: #ffffff;
+    background-color: #eeeeee;
     border: 1px solid black;
     opacity: 0.6;
     filter: alpha(opacity=60); 
@@ -68,17 +70,17 @@ a:hover {
 
 </style>
 
-<title></title>
 <?php
+
+//Show playing now
+$file = 'mediapi-playing-now.txt';
+$playing_now = file_get_contents($file);
+$playing_now = basename($playing_now);
+
+echo "<title>MediaPi - ".$playing_now."</title>";
 
 print '<div class="background"><div class="transbox">';
 print '<br><h1><a href="/">MediaPi</a></h1>';
-
-//Show playing now
-
-$file = '/tmp/mediapi-playing-now.txt';
-$playing_now = file_get_contents($file);
-$playing_now = basename($playing_now);
 
 if ($playing_now != "") {
  print "<br><h2>Playing Now: $playing_now</h2>";
@@ -135,9 +137,9 @@ if ($_REQUEST['movies'] != '') {
 
  $movies = $_REQUEST['movies'];
  if ($movies == "stop") {
-  $file = '/tmp/mediapi-stop.txt';
+  $file = $filePath . '/mediapi-stop.txt';
  } else {
-  $file = '/tmp/mediapi-play-mp4.txt';
+  $file = $filePath . '/mediapi-play-mp4.txt';
  }
  $current .= "$movies\n";
  file_put_contents($file, $current);
@@ -150,9 +152,9 @@ if ($_REQUEST['movies'] != '') {
 
  $music = $_REQUEST['music'];
  if ($music == "stop") {
-  $file = '/tmp/mediapi-stop.txt';
+  $file = $filePath . '/mediapi-stop.txt';
  } else {
-  $file = '/tmp/mediapi-play-mp3.txt';
+  $file = $filePath . '/mediapi-play-mp3.txt';
  }
  $current .= "$music\n";
  file_put_contents($file, $current);

@@ -6,26 +6,29 @@
 
 echo "Starting MediaPi Script..."
 
+rm /var/www/html/mediapi-playing-now.txt
+
+WDIR=/var/www/html
+DIR=/home/pi/scripts
+
 # Autoplay mp4
-#echo "folder" > /tmp/mediapi-play-mp4.txt
+#echo "folder" > $DIR/mediapi-play-mp4.txt
 
 # Autoplay mp3
-echo "folder" > /tmp/mediapi-play-mp3.txt
+#echo "folder" > $DIR/mediapi-play-mp3.txt
 
 while true; do
-  DIR=/home/pi/scripts
-  if [ -a /tmp/mediapi-stop.txt ]; then
+  if [ -a "$WDIR/mediapi-stop.txt" ]; then
     echo "stop media" >> $DIR/mediapi.log
-    bash -x $DIR/mediapi-stop.sh &
-    sudo rm /tmp/mediapi-stop.txt
+    bash $DIR/mediapi-stop.sh &
 
-  elif [ -a /tmp/mediapi-play-mp4.txt ]; then
+  elif [ -a "$WDIR/mediapi-play-mp4.txt" ]; then
     echo "start movie" >> $DIR/mediapi.log
-    bash -x $DIR/mediapi-play-mp4.sh &
+    bash $DIR/mediapi-play-mp4.sh &
 
-  elif [ -a /tmp/mediapi-play-mp3.txt ]; then
+  elif [ -a "$WDIR/mediapi-play-mp3.txt" ]; then
     echo "start song" >> $DIR/mediapi.log
-    bash -x $DIR/mediapi-play-mp3.sh &
+    bash $DIR/mediapi-play-mp3.sh &
 
   else
     echo "nothing to do, waiting for command..."
