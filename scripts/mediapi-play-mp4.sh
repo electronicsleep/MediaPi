@@ -12,19 +12,19 @@
 #USB_GOPRO=/media/0000-AAAA/DCIM/100GOPRO
 #USB INFO
 #USB_NAME=/media/usb
-USB_NAME=/var/www/html
+DIR=/var/www/html
 
 
-if [ -a /tmp/mediapi-play-mp4.txt ]; then
+if [ -a "$DIR/mediapi-play-mp4.txt" ]; then
 
- PLAYLIST=$(cat /tmp/mediapi-play-mp4.txt)
+ PLAYLIST=$(cat $DIR/mediapi-play-mp4.txt)
 
- if [ -a /tmp/mediapi-playing-now.txt ]; then
+ if [ -a "$DIR/mediapi-playing-now.txt" ]; then
   echo "playing already, exit"
   exit
  fi
 
- sudo rm /tmp/mediapi-play-mp4.txt
+ sudo rm $DIR/mediapi-play-mp4.txt
 
  FILES=/media/usb/video/*
 
@@ -38,7 +38,7 @@ if [ -a /tmp/mediapi-play-mp4.txt ]; then
  # FILES=$USB_GOPRO/*.mp4
  #else
  echo "FILES"
- FILES=$USB_NAME/video/*.mp4
+ FILES=$DIR/video/*.mp4
  #fi
 
  echo $PLAYLIST
@@ -50,19 +50,19 @@ if [ -a /tmp/mediapi-play-mp4.txt ]; then
  COUNTER=1000000
  until [ $COUNTER -lt 1 ]; do
 
-  for F in $FILES
+  for FILE in $FILES
   do
-   echo "Playing $F file..."
+   echo "Playing $FILE ..."
    # Enable playing now info
-   echo "$F" > /tmp/mediapi-playing-now.txt
+   echo "$FILE" > /var/www/html/mediapi-playing-now.txt
    # Play media with omxplayer
-   omxplayer -o hdmi "$F" -t "$F"
+   omxplayer -o hdmi "$FILE" -t "$FILE"
    let COUNTER=COUNTER-1
   done
 
  done
 
- sudo rm /tmp/mediapi-play-mp4.txt
+ sudo rm $DIR/mediapi-play-mp4.txt
 
 else
  echo "Already playing..."

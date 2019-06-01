@@ -7,13 +7,13 @@
 DIR=/var/www/html
 IFS=$'\n'
 
-if [ -a /tmp/mediapi-play-mp3.txt ]; then
+if [ -a "$DIR/mediapi-play-mp3.txt" ]; then
 
-  PLAYLIST=$(cat /tmp/mediapi-play-mp3.txt)
+  PLAYLIST=$(cat $DIR/mediapi-play-mp3.txt)
   echo "Started play mp3..." >> /home/pi/scripts/mediapi-play-mp3.log
-  sudo rm /tmp/mediapi-play-mp3.txt
+  sudo rm $DIR/mediapi-play-mp3.txt
 
-  if [ -a /tmp/mediapi-playing-now.txt ]; then
+  if [ -a "$DIR/mediapi-playing-now.txt" ]; then
     echo "playing already, exit"
     exit
   fi
@@ -21,17 +21,17 @@ if [ -a /tmp/mediapi-play-mp3.txt ]; then
   #ALL FILES IN MP3 DIR
   FILES=$(find $DIR/songs/ -iname "*.mp3" -print)
 
-  for f in $FILES
+  for FILE in $FILES
   do
-    echo "Playing $f file..."
-    echo "Playing $f file..." >> /home/pi/scripts/mediapi-play-mp3.log
-    echo "$f" >> /tmp/mediapi-playing-now.txt
-    omxplayer -o hdmi "$f"
+    echo "Playing $FILE..."
+    echo "Playing $FILE..." >> /home/pi/scripts/mediapi-play-mp3.log
+    echo "$FILE" > $DIR/mediapi-playing-now.txt
+    omxplayer -o hdmi "$FILE"
   done
   echo "Finished playlist..."
 
-  sudo rm /tmp/mediapi-play-mp3.txt
-  sudo rm /tmp/mediapi-playing-now.txt
+  sudo rm $DIR/mediapi-play-mp3.txt
+  sudo rm $DIR/mediapi-playing-now.txt
 
 else
   echo "Already playing..."
