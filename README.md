@@ -31,16 +31,8 @@ Ensure omxplayer is installed.
 sudo apt-get install omxplayer -y
 ```
 
-# Start MediaPi at boot
-using pi user
-crontab -e
 
-```
-#MediaPi: script for media control
-@reboot    bash -x /home/pi/scripts/mediapi.sh >> /home/pi/scripts/mediapi.log 2>&1
-```
-
-# Install Web Interface:
+# Install mediapi web interface and scripts:
 
 Enable ssh at boot
 https://www.raspberrypi-spy.co.uk/2012/05/enable-secure-shell-ssh-on-your-raspberry-pi/
@@ -78,8 +70,16 @@ rm /var/www/html/index.html
 Launch http://mediapi.local in your browser to access web interface
 ```
 
+# Start MediaPi at boot:
+using pi user
+crontab -e
 
-# CLI Run: (via ssh on pi)
+```
+#MediaPi: script for media control
+@reboot    bash -x /home/pi/scripts/mediapi.sh >> /home/pi/scripts/mediapi.log 2>&1
+```
+
+# Start script: (via ssh on pi)
 
 ```
 sudo apt-get install tmux htop -y
