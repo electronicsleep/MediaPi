@@ -15,7 +15,7 @@ DIR=/home/pi/scripts
 #echo "folder" > $DIR/mediapi-play-mp4.txt
 
 # Autoplay mp3
-#echo "folder" > $DIR/mediapi-play-mp3.txt
+echo "folder" > $DIR/mediapi-play-mp3.txt
 
 while true; do
   if [ -a "$WDIR/mediapi-stop.txt" ]; then
