@@ -89,7 +89,6 @@ if ($playing_now != "") {
 }
 
 //Post comment on movie
-
 if ($_REQUEST['post']) {
  $post = $_REQUEST['post'];
  $user = $_REQUEST['user'];
@@ -102,7 +101,6 @@ if ($_REQUEST['post']) {
  print "<br>Rating: $rating";
 
  //Write text file of comments
-
  $file = 'posts.txt';
  $posts = file_get_contents($file);
  $posts .= " Movie: $playing_now User: $user\n Rating: $rating\n Post: $post\n\n";
@@ -117,7 +115,7 @@ if ($_REQUEST['post']) {
 
  $user = $_SESSION['user'];
 
- /*
+ /* Rating feature
  print '<table><form method="POST" action="./">';
  print '<tr><td>User:</td><td><input type="text" name="user" value="'.$user.'"></td></tr>';
  print '<tr><td>Comment:</td><td> <input type="text" name="post"></td></tr>';
@@ -132,7 +130,6 @@ if ($_REQUEST['post']) {
 }
 
 //Write the playlist file to start playing movies
-
 if ($_REQUEST['movies'] != '') {
 
  $movies = $_REQUEST['movies'];
@@ -144,10 +141,7 @@ if ($_REQUEST['movies'] != '') {
  $current .= "$movies\n";
  file_put_contents($file, $current);
 
- //$file = file_get_contents('/tmp/mediapi-play-mp4.txt', true);
-
-//Write the playlist for to start playing music
-
+// Write playlist for to start playing music
 } elseif ($_REQUEST['music'] != '') {
 
  $music = $_REQUEST['music'];
@@ -159,20 +153,15 @@ if ($_REQUEST['movies'] != '') {
  $current .= "$music\n";
  file_put_contents($file, $current);
 
- //$file = file_get_contents('/tmp/mediapi-play-mp3.txt', true);
-
 } else {
  print '<br><a href="./?movies=folder">Play movie folder</a>';
  print '<br><a href="./?music=folder">Play music folder</a>';
- //For different playlists
- //print '<br><a href="./?movies=default">Play movie playlist default</a>';
- //print '<br><a href="./?movies=featured">Play movie playlist featured</a>';
  listFolderFiles('/media/usb/video/default');
  print '<br><a href="./?movies=stop">Stop media</a>';
  print '<br>';
 }
 
-/*
+/* Disk spae and rating feature
 print '<h1>Videos disk space:</h1>';
 print '<iframe src="d3-disk-space.php" width="600" height="400" frameborder=0 scrolling="no"></iframe>';
 print '<h1>Fix/Good Ratings:</h1>';
