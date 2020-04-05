@@ -99,11 +99,11 @@ Web Interface: See what video is playing and start and stop media
 
 # Uses:
 
-Play a relaxing playlist for you family
-
-Show footage on TV with friends
+Play a relaxing playlist for your family
 
 Review recorded GoPro Videos
+
+Show footage on TV with friends
 
 Small Portable Movie player
 
